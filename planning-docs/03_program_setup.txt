@@ -1,0 +1,110 @@
+# 프로그램 세팅 가이드
+
+## 추천 기술 스택
+
+### Frontend
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+### 상태 관리
+- React useState로 시작
+- 필요 시 Zustand 추가
+
+### AI API
+- OpenRouter API 사용
+- 무료 또는 저렴한 모델로 시작
+- API Key는 .env에 저장
+
+### 배포
+- Vercel
+
+## 프로젝트 생성 명령어
+
+```bash
+npm create vite@latest message-guard -- --template react-ts
+cd message-guard
+npm install
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+## Tailwind 설정
+
+tailwind.config.js
+
+```js
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+src/index.css
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## 폴더 구조
+
+```txt
+src/
+  components/
+    Header.tsx
+    MessageForm.tsx
+    PurposeSelector.tsx
+    ToneSelector.tsx
+    ResultCard.tsx
+    RiskReviewCard.tsx
+    LoadingState.tsx
+  data/
+    options.ts
+  lib/
+    ai.ts
+    prompt.ts
+  types/
+    message.ts
+  App.tsx
+  main.tsx
+  index.css
+```
+
+## 환경 변수
+
+.env
+
+```txt
+VITE_OPENROUTER_API_KEY=your_api_key_here
+```
+
+## 실행 명령어
+
+```bash
+npm run dev
+```
+
+## 빌드 명령어
+
+```bash
+npm run build
+```
+
+## 개발 우선순위
+1. 정적 UI 제작
+2. 입력 폼 상태 연결
+3. 더미 데이터로 결과 카드 출력
+4. AI API 연결
+5. 로딩/에러 처리
+6. 복사 기능 추가
+7. README 정리
+8. Vercel 배포
